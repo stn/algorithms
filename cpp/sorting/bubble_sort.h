@@ -3,4 +3,4 @@
 
 void bubble_sort(int *arr, int n);
 
-#endif
+#endif // BUBBLE_SORT_H_

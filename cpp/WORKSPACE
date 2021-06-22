@@ -9,6 +9,7 @@ http_archive(
 
 http_archive(
   name = "rules_cc",
-  urls = ["https://github.com/bazelbuild/rules_cc/archive/40548a2974f1aea06215272d9c2b47a14a24e556.zip"],
-  strip_prefix = "rules_cc-40548a2974f1aea06215272d9c2b47a14a24e556",
+  urls = ["https://github.com/bazelbuild/rules_cc/archive/fb624ff008196216a86e958e98fbd1a2615d7bbe.zip"],
+  strip_prefix = "rules_cc-fb624ff008196216a86e958e98fbd1a2615d7bbe",
+  sha256 = "e4ab6ab1321977536835d9e66e24f869e0f02929a286b23f86b1ab97543f9007",
 )
