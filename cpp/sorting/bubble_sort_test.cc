@@ -1,3 +1,5 @@
+#include <random>
+
 #include <gtest/gtest.h>
 #include <gmock/gmock.h>
 
@@ -36,8 +38,10 @@ TEST(BubbleSortTest, DescendingArray) {
 }
 
 TEST(BubbleSortTest, RandomArray) {
+    std::mt19937 mt;
+    mt.seed(mt.default_seed);
     for (int i = 1; i < 10; ++i) {
-        int* arr = random_array(i);
+        int* arr = random_array(i, mt);
         //print_array(arr, i);
         bubble_sort(arr, i);
         //print_array(arr, i);

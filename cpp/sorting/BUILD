@@ -12,6 +12,16 @@ cc_library(
     hdrs = ["sorting_test_util.h"],
 )
 
+cc_binary(
+  name = "bubble_sort_benchmark",
+  srcs = ["bubble_sort_benchmark.cc"],
+  deps = [
+    ":sorting",
+    ":sorting_test_util",
+    "@com_github_google_benchmark//:benchmark_main"
+  ]
+)
+
 cc_test(
   name = "sorting_test",
   size = "small",

@@ -1,7 +1,6 @@
 #include "sorting_test_util.h"
 
 #include <iostream>
-#include <random>
 
 
 void print_array(int* arr, int n) {
@@ -29,9 +28,7 @@ int* descending_array(int n) {
 }
 
 
-int* random_array(int n) {
-    std::mt19937 mt;
-    mt.seed(mt.default_seed);
+int* random_array(int n, std::mt19937& mt) {
     int* arr = new int[n];
     for (int i = 0; i < n; ++i) {
         arr[i] = mt();

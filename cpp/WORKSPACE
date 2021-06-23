@@ -1,6 +1,13 @@
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 
 http_archive(
+  name = "rules_cc",
+  urls = ["https://github.com/bazelbuild/rules_cc/archive/fb624ff008196216a86e958e98fbd1a2615d7bbe.zip"],
+  strip_prefix = "rules_cc-fb624ff008196216a86e958e98fbd1a2615d7bbe",
+  sha256 = "e4ab6ab1321977536835d9e66e24f869e0f02929a286b23f86b1ab97543f9007",
+)
+
+http_archive(
   name = "com_google_googletest",
   urls = ["https://github.com/google/googletest/archive/e2239ee6043f73722e7aa812a459f54a28552929.zip"],
   strip_prefix = "googletest-e2239ee6043f73722e7aa812a459f54a28552929",
@@ -8,8 +15,8 @@ http_archive(
 )
 
 http_archive(
-  name = "rules_cc",
-  urls = ["https://github.com/bazelbuild/rules_cc/archive/fb624ff008196216a86e958e98fbd1a2615d7bbe.zip"],
-  strip_prefix = "rules_cc-fb624ff008196216a86e958e98fbd1a2615d7bbe",
-  sha256 = "e4ab6ab1321977536835d9e66e24f869e0f02929a286b23f86b1ab97543f9007",
+    name = "com_github_google_benchmark",
+    urls = ["https://github.com/google/benchmark/archive/62937f91b5c763a8e119d0c20c67b87bde8eff1c.zip"],
+    strip_prefix = "benchmark-62937f91b5c763a8e119d0c20c67b87bde8eff1c",
+    sha256 = "39b17bae1023b4841fe0cf5282cbd95dada08becd98a8b6d61f90ad20e972efa"
 )
