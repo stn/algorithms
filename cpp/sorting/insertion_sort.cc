@@ -11,3 +11,18 @@ void insertion_sort(int *arr, int n) {
         }
     }
 }
+
+void insertion_sort2(int *arr, int n) {
+    for (int i = 1; i < n; ++i) {
+        int tmp = arr[i];
+        // search the position where the value is smaller than or equals to tmp.
+        int j;
+        for (j = i; j > 0; --j) {
+            if (arr[j - 1] <= tmp) {
+                break;
+            }
+            arr[j] = arr[j - 1];
+        }
+        arr[j] = tmp;
+    }
+}
