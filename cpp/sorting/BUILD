@@ -5,10 +5,12 @@ cc_library(
     srcs = [
       "bubble_sort.cc",
       "selection_sort.cc",
+      "insertion_sort.cc",
     ],
     hdrs = [
       "bubble_sort.h",
       "selection_sort.h",
+      "insertion_sort.h",
     ],
 )
 
@@ -38,12 +40,43 @@ cc_binary(
   ]
 )
 
+cc_binary(
+  name = "insertion_sort_benchmark",
+  srcs = ["insertion_sort_benchmark.cc"],
+  deps = [
+    ":sorting",
+    ":sorting_test_util",
+    "@com_github_google_benchmark//:benchmark_main"
+  ]
+)
+
+cc_binary(
+  name = "insertion_sort_benchmark2",
+  srcs = ["insertion_sort_benchmark2.cc"],
+  deps = [
+    ":sorting",
+    ":sorting_test_util",
+    "@com_github_google_benchmark//:benchmark_main"
+  ]
+)
+
+cc_binary(
+  name = "insertion_sort_benchmark3",
+  srcs = ["insertion_sort_benchmark3.cc"],
+  deps = [
+    ":sorting",
+    ":sorting_test_util",
+    "@com_github_google_benchmark//:benchmark_main"
+  ]
+)
+
 cc_test(
   name = "sorting_test",
   size = "small",
   srcs = [
     "bubble_sort_test.cc",
     "selection_sort_test.cc",
+    "insertion_sort_test.cc",
   ],
   deps = [
       ":sorting",

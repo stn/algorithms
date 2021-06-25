@@ -26,3 +26,28 @@ void insertion_sort2(int *arr, int n) {
         arr[j] = tmp;
     }
 }
+
+void insertion_sort3(int *arr, int n) {
+    if (n == 0) return;
+
+    int min_pos = n - 1;
+    for (int i = n - 1; i > 0; --i) {
+        if (arr[i - 1] < arr[min_pos]) {
+            min_pos = i - 1;
+        }
+    }
+
+    int tmp = arr[min_pos];
+    arr[min_pos] = arr[0];
+    arr[0] = tmp;
+    for (int i = 2; i < n; ++i) {
+        int tmp = arr[i];
+        // search the position where the value is smaller than or equals to tmp.
+        int j = i;
+        while (tmp < arr[j - 1]) {
+            arr[j] = arr[j - 1];
+            --j;
+        }
+        arr[j] = tmp;
+    }
+}

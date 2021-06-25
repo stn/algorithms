@@ -3,5 +3,6 @@
 
 void insertion_sort(int *arr, int n);
 void insertion_sort2(int *arr, int n);
+void insertion_sort3(int *arr, int n);
 
 #endif // INSERTION_SORT_H_
