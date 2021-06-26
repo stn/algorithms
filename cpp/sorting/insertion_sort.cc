@@ -36,10 +36,10 @@ void insertion_sort3(int *arr, int n) {
             min_pos = i - 1;
         }
     }
-
     int tmp = arr[min_pos];
     arr[min_pos] = arr[0];
     arr[0] = tmp;
+
     for (int i = 2; i < n; ++i) {
         int tmp = arr[i];
         // search the position where the value is smaller than or equals to tmp.
