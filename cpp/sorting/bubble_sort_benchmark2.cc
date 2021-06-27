@@ -6,7 +6,7 @@
 #include "sorting_test_util.h"
 
 
-static void BM_BubbleSortAsc(benchmark::State& state) {
+static void BM_BubbleSort2Asc(benchmark::State& state) {
     const int n = state.range(0);
 
     for (auto _ : state) {
@@ -14,7 +14,7 @@ static void BM_BubbleSortAsc(benchmark::State& state) {
         int* arr = ascending_array(n);
         state.ResumeTiming();
 
-        bubble_sort(arr, n);
+        bubble_sort2(arr, n);
 
         state.PauseTiming();
         delete arr;
@@ -24,7 +24,7 @@ static void BM_BubbleSortAsc(benchmark::State& state) {
     state.SetComplexityN(n);
 }
 
-static void BM_BubbleSortDesc(benchmark::State& state) {
+static void BM_BubbleSort2Desc(benchmark::State& state) {
     const int n = state.range(0);
 
     for (auto _ : state) {
@@ -32,7 +32,7 @@ static void BM_BubbleSortDesc(benchmark::State& state) {
         int* arr = descending_array(n);
         state.ResumeTiming();
 
-        bubble_sort(arr, n);
+        bubble_sort2(arr, n);
 
         state.PauseTiming();
         delete arr;
@@ -42,7 +42,7 @@ static void BM_BubbleSortDesc(benchmark::State& state) {
     state.SetComplexityN(n);
 }
 
-static void BM_BubbleSortRandom(benchmark::State& state) {
+static void BM_BubbleSort2Random(benchmark::State& state) {
     const int n = state.range(0);
 
     std::mt19937 mt;
@@ -53,7 +53,7 @@ static void BM_BubbleSortRandom(benchmark::State& state) {
         int* arr = random_array(n, mt);
         state.ResumeTiming();
 
-        bubble_sort(arr, n);
+        bubble_sort2(arr, n);
 
         state.PauseTiming();
         delete arr;
@@ -63,17 +63,17 @@ static void BM_BubbleSortRandom(benchmark::State& state) {
     state.SetComplexityN(n);
 }
 
-BENCHMARK(BM_BubbleSortAsc)
+BENCHMARK(BM_BubbleSort2Asc)
     ->RangeMultiplier(2)->Range(8, 8<<12)
     ->Complexity([](benchmark::IterationCount n)->double{return n * n;});
 
-BENCHMARK(BM_BubbleSortDesc)
+BENCHMARK(BM_BubbleSort2Desc)
     ->RangeMultiplier(2)->Range(8, 8<<12)
     ->Complexity([](benchmark::IterationCount n)->double{return n * n;});
 
-BENCHMARK(BM_BubbleSortRandom)
+BENCHMARK(BM_BubbleSort2Random)
     ->RangeMultiplier(2)->Range(8, 8<<12)
     ->Complexity([](benchmark::IterationCount n)->double{return n * n;});
 
-// $ bazel run //sorting:bubble_sort_benchmark --compilation_mode=opt
+// $ bazel run //sorting:bubble_sort_benchmark2 --compilation_mode=opt
 BENCHMARK_MAIN();

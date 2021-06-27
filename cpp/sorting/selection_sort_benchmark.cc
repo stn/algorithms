@@ -75,5 +75,5 @@ BENCHMARK(BM_SelectionSortRandom)
     ->RangeMultiplier(2)->Range(8, 8<<12)
     ->Complexity([](benchmark::IterationCount n)->double{return n * n;});
 
-// $ bazel run //sorting:selection_sort_benchmark
+// $ bazel run //sorting:selection_sort_benchmark --compilation_mode=opt
 BENCHMARK_MAIN();
