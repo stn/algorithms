@@ -7,12 +7,14 @@ cc_library(
       "insertion_sort.cc",
       "selection_sort.cc",
       "shaker_sort.cc",
+      "shell_sort.cc",
     ],
     hdrs = [
       "bubble_sort.h",
       "insertion_sort.h",
       "selection_sort.h",
       "shaker_sort.h",
+      "shell_sort.h",
     ],
 )
 
@@ -92,6 +94,16 @@ cc_binary(
   ]
 )
 
+cc_binary(
+  name = "shell_sort_benchmark",
+  srcs = ["shell_sort_benchmark.cc"],
+  deps = [
+    ":sorting",
+    ":sorting_test_util",
+    "@com_github_google_benchmark//:benchmark_main"
+  ]
+)
+
 cc_test(
   name = "sorting_test",
   size = "small",
@@ -100,6 +112,7 @@ cc_test(
     "insertion_sort_test.cc",
     "selection_sort_test.cc",
     "shaker_sort_test.cc",
+    "shell_sort_test.cc",
   ],
   deps = [
       ":sorting",
