@@ -58,3 +58,25 @@ int* dense_random_array(int n, std::mt19937& mt) {
     }
     return arr;
 }
+
+int* binary_random_array(int n, std::mt19937& mt) {
+    std::uniform_int_distribution<> dist(0, 1);
+    int* arr = new int[n];
+    for (int i = 0; i < n; ++i) {
+        arr[i] = dist(mt);
+    }
+    return arr;
+}
+
+int* sorted_last10prandom_array(int n, std::mt19937& mt) {
+    std::uniform_int_distribution<> dist(0, n - 1);
+    int m = n / 10 + 1;
+    int* arr = new int[n];
+    for (int i = 0; i < n - m; ++i) {
+        arr[i] = i;
+    }
+    for (int i = n - m; i < n; ++i) {
+        arr[i] = dist(mt);
+    }
+    return arr;
+}

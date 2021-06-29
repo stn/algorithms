@@ -11,6 +11,9 @@ int* descending_array(int n);
 int* half_descending_array(int n);
 int* random_array(int n, std::mt19937& mt);
 int* dense_random_array(int n, std::mt19937& mt);
+int* binary_random_array(int n, std::mt19937& mt);
+int* sorted_last10prandom_array(int n, std::mt19937& mt);
+
 
 #define SORTING_TEST_ASCENDING(sort) \
 TEST(sort ## _test, AscendingArray) { \
@@ -94,6 +97,38 @@ TEST(sort ## _test, DenseRandomArray) { \
     mt.seed(mt.default_seed); \
     for (int i = 1; i < 10; ++i) { \
         int* arr = dense_random_array(i, mt); \
+        /* print_array(arr, i); */ \
+        sort(arr, i); \
+        /* print_array(arr, i); */ \
+        for (int j = 0; j < i - 1; ++j) { \
+            EXPECT_TRUE(arr[j] <= arr[j + 1]); \
+        } \
+        delete arr; \
+    } \
+}
+
+#define SORTING_TEST_BINARY_RANDOM(sort) \
+TEST(sort ## _test, BinaryRandomArray) { \
+    std::mt19937 mt; \
+    mt.seed(mt.default_seed); \
+    for (int i = 1; i < 10; ++i) { \
+        int* arr = binary_random_array(i, mt); \
+        /* print_array(arr, i); */ \
+        sort(arr, i); \
+        /* print_array(arr, i); */ \
+        for (int j = 0; j < i - 1; ++j) { \
+            EXPECT_TRUE(arr[j] <= arr[j + 1]); \
+        } \
+        delete arr; \
+    } \
+}
+
+#define SORTING_TEST_BINARY_SORTED_LAST10PRANDOM(sort) \
+TEST(sort ## _test, SortedLast10pRandomArray) { \
+    std::mt19937 mt; \
+    mt.seed(mt.default_seed); \
+    for (int i = 1; i < 10; ++i) { \
+        int* arr = sorted_last10prandom_array(i, mt); \
         /* print_array(arr, i); */ \
         sort(arr, i); \
         /* print_array(arr, i); */ \
