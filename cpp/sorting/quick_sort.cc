@@ -49,3 +49,43 @@ void quick_sort2(int *arr, int n) {
     quick_sort_sub2(arr, 0, n - 1);
     insertion_sort3(arr, n);
 }
+
+// quick sort 3
+
+#define M 100
+
+void quick_sort_sub3(int *arr, int l, int r) {
+    if (r - l <= M) return;
+
+    int m = (l + r) / 2;
+    int tmp = arr[m];
+    arr[m] = arr[r - 1];
+    arr[r - 1] = tmp;
+
+    if (arr[l] > arr[r - 1]) {
+        //tmp = arr[r - 1];
+        arr[r - 1] = arr[l];
+        arr[l] = tmp;
+    }
+
+    if (arr[l] > arr[r]) {
+        tmp = arr[r];
+        arr[r] = arr[l];
+        arr[l] = tmp;
+    }
+
+    if (arr[r - 1] > arr[r]) {
+        tmp = arr[r];
+        arr[r] = arr[r - 1];
+        arr[r - 1] = tmp;
+    }
+
+    int i = partition(arr, l + 1, r - 1);
+    quick_sort_sub3(arr, l, i - 1);
+    quick_sort_sub3(arr, i + 1, r);
+}
+
+void quick_sort3(int *arr, int n) {
+    quick_sort_sub3(arr, 0, n - 1);
+    insertion_sort3(arr, n);
+}
