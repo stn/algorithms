@@ -107,6 +107,16 @@ cc_binary(
 )
 
 cc_binary(
+  name = "quick_sort_3part_benchmark",
+  srcs = ["quick_sort_3part_benchmark.cc"],
+  deps = [
+    ":sorting",
+    ":sorting_test_util",
+    "@com_github_google_benchmark//:benchmark_main"
+  ]
+)
+
+cc_binary(
   name = "selection_sort_benchmark",
   srcs = ["selection_sort_benchmark.cc"],
   deps = [
