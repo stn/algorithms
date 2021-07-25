@@ -6,7 +6,7 @@ import {
   useRouteMatch,
   useParams
 } from "react-router-dom"; 
-import "./sorting/BubbleSort";
+import BubbleSort from "./sorting/BubbleSort";
 
 function App() {
   return (
@@ -48,10 +48,6 @@ function App() {
 
 function Home() {
   return <h2>Home</h2>;
-}
-
-function BubbleSort() {
-  return <h2>Bubble Sort</h2>
 }
 
 export default App;
