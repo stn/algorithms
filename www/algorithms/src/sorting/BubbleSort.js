@@ -1,9 +1,23 @@
+import ReactMarkdown from 'react-markdown'
+import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter'
+import {vs} from 'react-syntax-highlighter/dist/esm/styles/prism'
 
-function BubbleSort() {
-  return (<>
-    <h2>Bubble Sort</h2>
-    <div>
-    簡単に理解できるということでよく最初に習うソート。
+
+const components = {
+  code({node, inline, className, children, ...props}) {
+    const match = /language-(\w+)/.exec(className || '')
+    return !inline && match ? (
+      <SyntaxHighlighter style={vs} language={match[1]} PreTag="div" children={String(children).replace(/\n$/, '')} {...props} />
+    ) : (
+      <code className={className} {...props}>
+        {children}
+      </code>
+    )
+  }
+}
+
+const markdown = `
+簡単に理解できるということでよく最初に習うソート。
 
 気持ちとしては、順序が前後しているところを入れ替えるという操作を、そういったところがなくなるまで続ければ全体がソートされるよねということ。
 
@@ -16,17 +30,24 @@ function BubbleSort() {
 
 安定ソートであり、並列化も考えやすい。
 
-```python
+~~~python
 def bubble_sort(arr):
     for i in range(len(arr) - 1):
         for j in range(len(arr) - i - 1):
             if arr[j] > arr[j + 1]:
                 arr[j + 1], arr[j] = arr[j], arr[j + 1]
     return arr
-```
+~~~
 
 bubble sortは揃っていない部分を必ず入れ替えるので、一度も入れ替えが起きなかったときは処理を終えてよい。
 しかし、そのチェックを入れるとループ内の処理が増えるために、ランダムのときはかえって処理が遅くなる。 (bubble_sort2/cpp)
+`
+
+function BubbleSort() {
+  return (<>
+    <h2>Bubble Sort</h2>
+    <div>
+      <ReactMarkdown  components={components} children={markdown} />
     </div>
   </>);
 }
