@@ -1,7 +1,9 @@
 import ReactMarkdown from 'react-markdown'
 import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter'
 import {vs} from 'react-syntax-highlighter/dist/esm/styles/prism'
-
+import remarkMath from 'remark-math'
+import rehypeKatex from 'rehype-katex'
+import 'katex/dist/katex.min.css' // `rehype-katex` does not import the CSS for you
 
 const components = {
   code({node, inline, className, children, ...props}) {
@@ -47,7 +49,11 @@ function BubbleSort() {
   return (<>
     <h2>Bubble Sort</h2>
     <div>
-      <ReactMarkdown  components={components} children={markdown} />
+      <ReactMarkdown
+        components={components}
+        remarkPlugins={[remarkMath]}
+        rehypePlugins={[rehypeKatex]}
+        children={markdown} />
     </div>
   </>);
 }
