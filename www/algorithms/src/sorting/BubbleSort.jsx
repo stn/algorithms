@@ -1,22 +1,29 @@
+import React from 'react'
 import ReactMarkdown from 'react-markdown'
-import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter'
-import {vs} from 'react-syntax-highlighter/dist/esm/styles/prism'
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
+import { vs } from 'react-syntax-highlighter/dist/esm/styles/prism'
 import remarkMath from 'remark-math'
 import rehypeKatex from 'rehype-katex'
 import 'katex/dist/katex.min.css' // `rehype-katex` does not import the CSS for you
-import { Scatter } from 'react-chartjs-2';
+import { Scatter } from 'react-chartjs-2'
 
 const components = {
-  code({node, inline, className, children, ...props}) {
+  code({ node, inline, className, children, ...props }) {
     const match = /language-(\w+)/.exec(className || '')
     return !inline && match ? (
-      <SyntaxHighlighter style={vs} language={match[1]} PreTag="div" children={String(children).replace(/\n$/, '')} {...props} />
+      <SyntaxHighlighter
+        style={vs}
+        language={match[1]}
+        PreTag="div"
+        children={String(children).replace(/\n$/, '')}
+        {...props}
+      />
     ) : (
       <code className={className} {...props}>
         {children}
       </code>
     )
-  }
+  },
 }
 
 const markdown = `
@@ -46,9 +53,9 @@ bubble sortは揃っていない部分を必ず入れ替えるので、一度も
 しかし、そのチェックを入れるとループ内の処理が増えるために、ランダムのときはかえって処理が遅くなる。 (bubble_sort2/cpp)
 `
 
-const labels = [];
+const labels = []
 for (let i = 0; i < 90000; i += 10000) {
-  labels.push(i.toString());
+  labels.push(i.toString())
 }
 const data = {
   datasets: [
@@ -67,30 +74,31 @@ const data = {
         { x: 4096, y: 4656872 },
         { x: 8192, y: 17301435 },
         { x: 16384, y: 67409144 },
-        { x: 32768, y: 265932125 }
+        { x: 32768, y: 265932125 },
       ],
       showLine: true,
-    }
+    },
   ],
   options: {
     responsive: true,
-  }
+  },
 }
 
 function BubbleSort() {
-  return (<>
-    <h2>Bubble Sort</h2>
-    <div>
-      <ReactMarkdown
-        components={components}
-        remarkPlugins={[remarkMath]}
-        rehypePlugins={[rehypeKatex]}
-        children={markdown} />
-    </div>
-    <Scatter 
-      data={data}
-    />
-  </>);
+  return (
+    <>
+      <h2>Bubble Sort</h2>
+      <div>
+        <ReactMarkdown
+          components={components}
+          remarkPlugins={[remarkMath]}
+          rehypePlugins={[rehypeKatex]}
+          children={markdown}
+        />
+      </div>
+      <Scatter data={data} />
+    </>
+  )
 }
 
-export default BubbleSort;
+export default BubbleSort

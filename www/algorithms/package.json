@@ -3,27 +3,38 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@linaria/babel-preset": "^3.0.0-beta.4",
+    "@linaria/core": "^3.0.0-beta.4",
+    "@linaria/react": "^3.0.0-beta.7",
+    "@linaria/shaker": "^3.0.0-beta.7",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
+    "@types/jest": "^26.0.15",
+    "@types/node": "^12.0.0",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
     "chart.js": "^3.5.0",
     "react": "^17.0.2",
     "react-chartjs-2": "^3.0.4",
     "react-dom": "^17.0.2",
-    "react-markdown": "^6.0.2",
+    "react-markdown": "^6.0.3",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "react-syntax-highlighter": "^15.4.4",
     "rehype-katex": "^5.0.0",
     "remark-math": "^4.0.0",
+    "typescript": "^4.1.2",
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "preinstall": "typesync || :",
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test --env=jsdom",
+    "lint": "eslint --ext .js,.ts,.tsx 'src/**'",
+    "lint:fix": "eslint --ext .js,.ts,.tsx 'src/**' --fix"
   },
   "eslintConfig": {
     "extends": [
@@ -42,5 +53,33 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@linaria/webpack-loader": "^3.0.0-beta.7",
+    "@types/eslint": "^7.28.0",
+    "@types/eslint-plugin-prettier": "^3.1.0",
+    "@types/prettier": "^2.3.2",
+    "@types/react-router": "^5.1.16",
+    "@types/react-router-dom": "^5.1.8",
+    "@types/react-syntax-highlighter": "^13.5.2",
+    "@types/testing-library__jest-dom": "^5.14.1",
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "8.1.0",
+    "babel-preset-react-app": "^10.0.0",
+    "customize-cra": "^1.0.0",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-config-react-app": "^6.0.0",
+    "eslint-formatter-friendly": "^7.0.0",
+    "eslint-plugin-babel": "^5.3.1",
+    "eslint-plugin-flowtype": "^5.8.2",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-react": "^7.24.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "prettier": "^2.3.2",
+    "react-app-rewired": "^2.1.8",
+    "typesync": "^0.8.0"
   }
 }
