@@ -14,45 +14,61 @@ const logo = require('./logo.svg') as string
 
 const App: React.FC = () => {
   return (
-    <Router>
-      <div>
-        <ul>
-          <li>
-            <Link to="/sorting/bubble">Bubble Sort</Link>
-          </li>
-          <li>Insertion Sort</li>
-          <li>Quick Sort</li>
-          <li>Selection Sort</li>
-          <li>Shaker Sort</li>
-          <li>Shell Sort</li>
-        </ul>
-
-        <Switch>
-          <Route path="/sorting/bubble">
-            <BubbleSort />
-          </Route>
-          <Route path="/">
-            <div>Home</div>
-          </Route>
-        </Switch>
-      </div>
-    </Router>
+    <>
+      <AppHeader />
+      <Container className="clearfix">
+        <Router>
+          <AppMain>
+            <Switch>
+              <Route path="/sorting/bubble">
+                <BubbleSort />
+              </Route>
+              <Route path="/">
+                <div>Home</div>
+              </Route>
+            </Switch>
+          </AppMain>
+          <SideMenu>
+            <ul>
+              <li>
+                <Link to="/sorting/bubble">Bubble Sort</Link>
+              </li>
+              <li>Insertion Sort</li>
+              <li>Quick Sort</li>
+              <li>Selection Sort</li>
+              <li>Shaker Sort</li>
+              <li>Shell Sort</li>
+            </ul>
+          </SideMenu>
+        </Router>
+      </Container>
+      <AppFooter />
+    </>
   )
 }
 
 const Container = styled.div`
-  text-align: center;
+  width: 970px;
+  margin: 30px auto 40px;
+`
+
+const SideMenu = styled.div`
+  float: left;
+  width: 275px;
+`
+
+const AppMain = styled.div`
+  display: block;
+  float: right;
+  width: 660px;
 `
 
 const AppHeader = styled.header`
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  width: 100%;
+`
+
+const AppFooter = styled.footer`
+  width: 100%;
 `
 
 const Img = styled.img`
