@@ -22,6 +22,10 @@ code {
     monospace;
 }
 
+p {
+  margin: 10px 0
+}
+
 .clearfix::after {
   content: '';
   display: block;
