@@ -20,8 +20,8 @@ static void BM_InsertionSort2Asc(benchmark::State& state) {
         delete arr;
         state.ResumeTiming();
     }
-    //state.SetItemsProcessed(int64_t(state.iterations()) * int64_t(n));
-    state.SetComplexityN(n);
+    state.SetItemsProcessed(int64_t(state.iterations()) * int64_t(n));
+    //state.SetComplexityN(n);
 }
 
 static void BM_InsertionSort2Desc(benchmark::State& state) {
@@ -38,8 +38,8 @@ static void BM_InsertionSort2Desc(benchmark::State& state) {
         delete arr;
         state.ResumeTiming();
     }
-    //state.SetItemsProcessed(int64_t(state.iterations()) * int64_t(n));
-    state.SetComplexityN(n);
+    state.SetItemsProcessed(int64_t(state.iterations()) * int64_t(n));
+    //state.SetComplexityN(n);
 }
 
 static void BM_InsertionSort2Random(benchmark::State& state) {
@@ -59,8 +59,8 @@ static void BM_InsertionSort2Random(benchmark::State& state) {
         delete arr;
         state.ResumeTiming();
     }
-    //state.SetItemsProcessed(int64_t(state.iterations()) * int64_t(n));
-    state.SetComplexityN(n);
+    state.SetItemsProcessed(int64_t(state.iterations()) * int64_t(n));
+    //state.SetComplexityN(n);
 }
 
 BENCHMARK(BM_InsertionSort2Asc)

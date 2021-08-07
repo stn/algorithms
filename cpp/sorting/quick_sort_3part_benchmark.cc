@@ -20,8 +20,8 @@ static void BM_QuickSort3PartAsc(benchmark::State& state) {
         delete arr;
         state.ResumeTiming();
     }
-    //state.SetItemsProcessed(int64_t(state.iterations()) * int64_t(n));
-    state.SetComplexityN(n);
+    state.SetItemsProcessed(int64_t(state.iterations()) * int64_t(n));
+    //state.SetComplexityN(n);
 }
 
 static void BM_QuickSort3PartDesc(benchmark::State& state) {
@@ -38,8 +38,8 @@ static void BM_QuickSort3PartDesc(benchmark::State& state) {
         delete arr;
         state.ResumeTiming();
     }
-    //state.SetItemsProcessed(int64_t(state.iterations()) * int64_t(n));
-    state.SetComplexityN(n);
+    state.SetItemsProcessed(int64_t(state.iterations()) * int64_t(n));
+    //state.SetComplexityN(n);
 }
 
 static void BM_QuickSort3PartRandom(benchmark::State& state) {
@@ -59,21 +59,18 @@ static void BM_QuickSort3PartRandom(benchmark::State& state) {
         delete arr;
         state.ResumeTiming();
     }
-    //state.SetItemsProcessed(int64_t(state.iterations()) * int64_t(n));
-    state.SetComplexityN(n);
+    state.SetItemsProcessed(int64_t(state.iterations()) * int64_t(n));
+    //state.SetComplexityN(n);
 }
 
 BENCHMARK(BM_QuickSort3PartAsc)
-    ->RangeMultiplier(2)->Range(8, 8<<12)
-    ->Complexity();
+    ->RangeMultiplier(2)->Range(8, 8<<12);
 
 BENCHMARK(BM_QuickSort3PartDesc)
-    ->RangeMultiplier(2)->Range(8, 8<<12)
-    ->Complexity();
+    ->RangeMultiplier(2)->Range(8, 8<<12);
 
 BENCHMARK(BM_QuickSort3PartRandom)
-    ->RangeMultiplier(2)->Range(8, 8<<12)
-    ->Complexity();
+    ->RangeMultiplier(2)->Range(8, 8<<12);
 
 // $ bazel run //sorting:quick_sort_3part_benchmark --compilation_mode=opt
 BENCHMARK_MAIN();

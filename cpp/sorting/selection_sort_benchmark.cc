@@ -20,8 +20,8 @@ static void BM_SelectionSortAsc(benchmark::State& state) {
         delete arr;
         state.ResumeTiming();
     }
-    //state.SetItemsProcessed(int64_t(state.iterations()) * int64_t(n));
-    state.SetComplexityN(n);
+    state.SetItemsProcessed(int64_t(state.iterations()) * int64_t(n));
+    //state.SetComplexityN(n);
 }
 
 static void BM_SelectionSortDesc(benchmark::State& state) {
@@ -38,8 +38,8 @@ static void BM_SelectionSortDesc(benchmark::State& state) {
         delete arr;
         state.ResumeTiming();
     }
-    //state.SetItemsProcessed(int64_t(state.iterations()) * int64_t(n));
-    state.SetComplexityN(n);
+    state.SetItemsProcessed(int64_t(state.iterations()) * int64_t(n));
+    //state.SetComplexityN(n);
 }
 
 static void BM_SelectionSortRandom(benchmark::State& state) {
@@ -59,21 +59,18 @@ static void BM_SelectionSortRandom(benchmark::State& state) {
         delete arr;
         state.ResumeTiming();
     }
-    //state.SetItemsProcessed(int64_t(state.iterations()) * int64_t(n));
-    state.SetComplexityN(n);
+    state.SetItemsProcessed(int64_t(state.iterations()) * int64_t(n));
+    //state.SetComplexityN(n);
 }
 
 BENCHMARK(BM_SelectionSortAsc)
-    ->RangeMultiplier(2)->Range(8, 8<<12)
-    ->Complexity([](benchmark::IterationCount n)->double{return n * n;});
+    ->RangeMultiplier(2)->Range(8, 8<<12);
 
 BENCHMARK(BM_SelectionSortDesc)
-    ->RangeMultiplier(2)->Range(8, 8<<12)
-    ->Complexity([](benchmark::IterationCount n)->double{return n * n;});
+    ->RangeMultiplier(2)->Range(8, 8<<12);
 
 BENCHMARK(BM_SelectionSortRandom)
-    ->RangeMultiplier(2)->Range(8, 8<<12)
-    ->Complexity([](benchmark::IterationCount n)->double{return n * n;});
+    ->RangeMultiplier(2)->Range(8, 8<<12);
 
 // $ bazel run //sorting:selection_sort_benchmark --compilation_mode=opt
 BENCHMARK_MAIN();
