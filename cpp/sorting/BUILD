@@ -47,6 +47,16 @@ cc_binary(
 )
 
 cc_binary(
+  name = "bubble_sort_benchmark3",
+  srcs = ["bubble_sort_benchmark3.cc"],
+  deps = [
+    ":sorting",
+    ":sorting_test_util",
+    "@com_github_google_benchmark//:benchmark_main"
+  ]
+)
+
+cc_binary(
   name = "insertion_sort_benchmark",
   srcs = ["insertion_sort_benchmark.cc"],
   deps = [
