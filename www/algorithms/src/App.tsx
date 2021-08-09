@@ -8,9 +8,7 @@ import {
   useRouteMatch,
   useParams,
 } from 'react-router-dom'
-import BubbleSort from './sorting/BubbleSort'
-
-const logo = require('./logo.svg') as string
+import BubbleSort from './pages/sorting/BubbleSort'
 
 const App: React.FC = () => {
   return (
@@ -69,22 +67,6 @@ const AppHeader = styled.header`
 
 const AppFooter = styled.footer`
   width: 100%;
-`
-
-const Img = styled.img`
-  height: 40vmin;
-  pointer-events: none;
-  @media (prefers-reduced-motion: no-preference) {
-    animation: App-logo-spin infinite 20s linear;
-  }
-  @keyframes App-logo-spin {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
-  }
 `
 
 const Paragraph = styled.p``
