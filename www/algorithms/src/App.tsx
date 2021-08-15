@@ -10,6 +10,7 @@ import {
 } from 'react-router-dom'
 import BubbleSort from './pages/sorting/BubbleSort'
 import InsertionSort from './pages/sorting/InsertionSort'
+import SelectionSort from './pages/sorting/SelectionSort'
 
 const App: React.FC = () => {
   return (
@@ -25,6 +26,9 @@ const App: React.FC = () => {
               <Route path="/sorting/insertion_sort">
                 <InsertionSort />
               </Route>
+              <Route path="/sorting/selection_sort">
+                <SelectionSort />
+              </Route>
               <Route path="/">
                 <div>Home</div>
               </Route>
@@ -39,7 +43,9 @@ const App: React.FC = () => {
                 <Link to="/sorting/insertion_sort">Insertion Sort</Link>
               </li>
               <li>Quick Sort</li>
-              <li>Selection Sort</li>
+              <li>
+                <Link to="/sorting/selection_sort">Selection Sort</Link>
+              </li>
               <li>Shaker Sort</li>
               <li>Shell Sort</li>
             </ul>
