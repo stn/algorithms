@@ -9,6 +9,7 @@ import {
   useParams,
 } from 'react-router-dom'
 import BubbleSort from './pages/sorting/BubbleSort'
+import InsertionSort from './pages/sorting/InsertionSort'
 
 const App: React.FC = () => {
   return (
@@ -18,8 +19,11 @@ const App: React.FC = () => {
         <Router>
           <AppMain>
             <Switch>
-              <Route path="/sorting/bubble">
+              <Route path="/sorting/bubble_sort">
                 <BubbleSort />
+              </Route>
+              <Route path="/sorting/insertion_sort">
+                <InsertionSort />
               </Route>
               <Route path="/">
                 <div>Home</div>
@@ -29,9 +33,11 @@ const App: React.FC = () => {
           <SideMenu>
             <ul>
               <li>
-                <Link to="/sorting/bubble">Bubble Sort</Link>
+                <Link to="/sorting/bubble_sort">Bubble Sort</Link>
               </li>
-              <li>Insertion Sort</li>
+              <li>
+                <Link to="/sorting/insertion_sort">Insertion Sort</Link>
+              </li>
               <li>Quick Sort</li>
               <li>Selection Sort</li>
               <li>Shaker Sort</li>

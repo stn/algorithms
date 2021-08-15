@@ -1,10 +1,4 @@
 import React from 'react'
-import ReactMarkdown from 'react-markdown'
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
-import { vs } from 'react-syntax-highlighter/dist/esm/styles/prism'
-import remarkMath from 'remark-math'
-import rehypeKatex from 'rehype-katex'
-import 'katex/dist/katex.min.css' // `rehype-katex` does not import the CSS for you
 import { Scatter } from 'react-chartjs-2'
 
 import Markdown from '../../components/Markdown'
@@ -221,6 +215,7 @@ const data3 = {
     responsive: true,
   },
 }
+
 function BubbleSort() {
   return (
     <>
