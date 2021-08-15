@@ -13,6 +13,7 @@ import InsertionSort from './pages/sorting/InsertionSort'
 import SelectionSort from './pages/sorting/SelectionSort'
 import ShakerSort from './pages/sorting/ShakerSort'
 import ShellSort from './pages/sorting/ShellSort'
+import QuickSort from './pages/sorting/QuickSort'
 
 const App: React.FC = () => {
   return (
@@ -27,6 +28,9 @@ const App: React.FC = () => {
               </Route>
               <Route path="/sorting/insertion_sort">
                 <InsertionSort />
+              </Route>
+              <Route path="/sorting/quick_sort">
+                <QuickSort />
               </Route>
               <Route path="/sorting/selection_sort">
                 <SelectionSort />
@@ -48,17 +52,19 @@ const App: React.FC = () => {
                 <Link to="/sorting/bubble_sort">Bubble Sort</Link>
               </li>
               <li>
+                <Link to="/sorting/shaker_sort">Shaker Sort</Link>
+              </li>
+              <li>
                 <Link to="/sorting/insertion_sort">Insertion Sort</Link>
               </li>
-              <li>Quick Sort</li>
               <li>
                 <Link to="/sorting/selection_sort">Selection Sort</Link>
               </li>
               <li>
-                <Link to="/sorting/shaker_sort">Shaker Sort</Link>
+                <Link to="/sorting/shell_sort">Shell Sort</Link>
               </li>
               <li>
-                <Link to="/sorting/shell_sort">Shell Sort</Link>
+                <Link to="/sorting/quick_sort">Quick Sort</Link>
               </li>
             </ul>
           </SideMenu>
